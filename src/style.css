@@ -141,6 +141,12 @@ wrapper {
     padding-right: 0.5em;
     text-align: end;
     font-size: 2vw;
+    border-radius: 10px;
+}
+
+.addTask:hover {
+    background-color: #525252;
+    cursor: pointer;
 }
 
 .darkOverlay {

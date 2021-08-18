@@ -9,13 +9,16 @@
     margin: 0;
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
 wrapper {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr;
     height: 100vh;
-    font-family: 'Roboto', sans-serif;
-    color: white;
 }
 
 .projectContainer {
@@ -139,3 +142,32 @@ wrapper {
     text-align: end;
     font-size: 2vw;
 }
+
+.darkOverlay {
+    position: fixed;
+    z-index: 2;
+    background-color: rgba(23, 23, 23, 0.829);
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.popupContainer {
+    position: fixed;
+    z-index: 3;
+    width: 50vw;
+    height: 50vh;
+    background-color: #393938;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    color: white;
+}
+
+.popupHeading {
+    text-align: center;
+    margin: 1em;
+    font-size: 3vw;
+}
+
+.taskForm, .timeForm {}

@@ -151,23 +151,104 @@ wrapper {
     left: 0;
     height: 100vh;
     width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+
+
 
 .popupContainer {
     position: fixed;
     z-index: 3;
-    width: 50vw;
-    height: 50vh;
     background-color: #393938;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 10px;
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.exitPopup {
+    position: absolute;
+    top: 1vh;
+    right: 2vw;
+}
+
+.exitPopup:hover {
+    cursor: pointer;
 }
 
 .popupHeading {
     text-align: center;
-    margin: 1em;
-    font-size: 3vw;
+    margin: 0 auto 0 auto;
 }
 
-.taskForm, .timeForm {}
+.taskForm, .timeForm {
+    font-family: 'Roboto', sans-serif;
+    margin: 1.5vh 10vw 1.5vh 10vw;
+    height: 10%;
+    border-radius: 10px;
+    border: 0.1em solid #393938;
+    padding: 0 0.5vw 0 0.5vw;
+}
+
+.taskForm:focus, .timeForm:focus {
+    outline: none;
+}
+
+.confirmForms {
+    margin-top: 1.5vh;
+    height: 10%;
+    background-color: #BB86FC;
+    color: white;
+    border: 0.1em solid #BB86FC;
+    border-radius: 10px;
+    align-self: center;
+}
+
+@media (max-width: 600px) {
+    .popupContainer {
+        width: 80vw;
+        height: 60vh;
+    }
+
+    .popupHeading {
+        font-size: 8vw;
+    }
+
+    .confirmForms {
+        width: 30%;
+    }
+
+    .exitPopup {
+        font-size: 8vw;
+    }
+}
+
+@media (min-width: 601px) {
+    .popupContainer {
+        width: 40vw;
+        height: 40vh;
+    }
+
+    .popupHeading {
+        font-size: 3vw;
+    }
+
+    .confirmForms {
+        width: 10%;
+    }
+
+    .exitPopup {
+        font-size: 3vw;
+    }
+}
+
+.confirmForms:hover {
+    background-color: white;
+    color: #BB86FC;
+}

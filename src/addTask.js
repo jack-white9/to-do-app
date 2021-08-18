@@ -1,13 +1,20 @@
 export default function addTaskPopup() {
     const addTaskButton = document.querySelector('.addTask');
+    const exitPopup = document.createElement('p');
+    exitPopup.classList.add('exitPopup');
+    exitPopup.innerHTML = '×';
+
+    const darkOverlay = document.createElement('div');
+    darkOverlay.classList.add('darkOverlay');
+
     addTaskButton.addEventListener('click', () => {
-        const darkOverlay = document.createElement('div');
-        darkOverlay.classList.add('darkOverlay');
         document.body.appendChild(darkOverlay);
 
         const popupContainer = document.createElement('container');
         popupContainer.classList.add('popupContainer');
         darkOverlay.appendChild(popupContainer);
+
+        popupContainer.appendChild(exitPopup);
 
         const popupHeading = document.createElement('p');
         popupHeading.classList.add('popupHeading');
@@ -25,5 +32,13 @@ export default function addTaskPopup() {
         timeForm.setAttribute('placeholder', 'When will it be done by?');
         timeForm.classList.add('timeForm');
         popupContainer.appendChild(timeForm);
+
+        const confirmForms = document.createElement('button');
+        confirmForms.classList.add('confirmForms');
+        confirmForms.innerHTML = 'Add Task';
+        popupContainer.appendChild(confirmForms)
+    })
+    exitPopup.addEventListener('click', () => {
+        document.body.removeChild(darkOverlay);
     })
 }

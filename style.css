@@ -1,0 +1,133 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+.projectContainer {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #333332;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 5vh 3vw;
+}
+
+.projectHeader {
+    color: #BB86FC;
+    font-size: 4vw;
+    font-weight: 100;
+    margin-bottom: 1vh;
+}
+
+.projectDivider {
+    border-top: 1px solid white;
+    width: 100%;
+}
+
+.projects {
+    font-size: 2vw;
+    padding-top: 0.5em;
+    padding-left: 0.25em;
+    border-radius: 10px;
+    vertical-align: middle;
+}
+
+.projects:hover {
+    background-color: #393938;
+}
+
+.addProject {
+    color: #BB86FC;
+
+}
+
+.tasksContainer {
+    background-color: #393938;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 5vh 3vw;
+}
+
+.tasksHeaderContainer {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+}
+
+.tasksHeader {
+    color: #BB86FC;
+    font-size: 4vw;
+    font-weight: 100;
+    margin-bottom: 1vh;
+}
+
+.edit {
+    justify-self: end;
+    align-self: end;
+    margin-bottom: 1vh;
+}
+
+.edit:hover {
+    color: #BB86FC;
+}
+
+.tasksDivider {
+    border-top: 1px solid white;
+    width: 100%;
+}
+
+.tasksSubheader {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    font-size: 2vw;
+    font-weight: 100;
+}
+
+.todoContainer {
+    font-size: 2vw;
+    padding: 8px;
+    margin: 0.25em 0;
+
+    display: grid;
+    grid-template-columns: 1fr 10fr 3fr;
+    
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+.todoContainer:hover {
+    background-color: #525252;
+}
+
+.circle {
+    height: 0.75em;
+    width: 0.75em;
+    border: 2px solid white;
+    border-radius: 50%;
+    margin: 0.25em 0.4em;
+}
+
+.todoTime {
+    justify-self: end;
+    align-self: center;
+    padding-right: 0.4em;
+    font-size: 1vw;
+}
+
+.addTask {
+    color: #BB86FC;
+    padding-top: 0.5em;
+    padding-right: 0.5em;
+    text-align: end;
+    font-size: 2vw;
+}

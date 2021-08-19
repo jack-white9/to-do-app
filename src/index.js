@@ -1,4 +1,3 @@
-import './style.css';
 import UIhandler from './UIhandler.js';
 
 

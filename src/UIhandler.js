@@ -1,3 +1,5 @@
+import './style.css';
+
 export default function UIhandler() {
     //wrapper contents
     const wrapper = document.createElement('wrapper');

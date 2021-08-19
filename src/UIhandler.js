@@ -1,4 +1,4 @@
-export default function loadhtml() {
+export default function UIhandler() {
     //wrapper contents
     const wrapper = document.createElement('wrapper');
     document.body.appendChild(wrapper);
@@ -152,4 +152,41 @@ export default function loadhtml() {
     addTask.classList.add('addTask');
     addTask.innerHTML = '+ Add Task';
     tasksContainer.appendChild(addTask);
+
+    const addTaskButton = document.querySelector('.addTask');
+    const exitPopup = document.createElement('p');
+    exitPopup.classList.add('exitPopup');
+    exitPopup.innerHTML = '×';
+
+    const darkOverlay = document.createElement('div');
+    darkOverlay.classList.add('darkOverlay');
+    
+    const popupContainer = document.createElement('container');
+    popupContainer.classList.add('popupContainer');
+
+    const popupHeading = document.createElement('p');
+    popupHeading.classList.add('popupHeading');
+    popupHeading.innerHTML = 'Add your task';
+
+    const taskForm = document.createElement('input');
+    taskForm.setAttribute('type', 'text');
+    taskForm.setAttribute('placeholder', 'What is your task?');
+    taskForm.classList.add('taskForm');
+
+    const confirmForms = document.createElement('button');
+    confirmForms.classList.add('confirmForms');
+    confirmForms.innerHTML = 'Add Task';
+
+    addTaskButton.addEventListener('click', () => {
+        document.body.appendChild(darkOverlay);
+        darkOverlay.appendChild(popupContainer);
+        popupContainer.appendChild(exitPopup);
+        popupContainer.appendChild(popupHeading);
+        popupContainer.appendChild(taskForm);
+        popupContainer.appendChild(confirmForms)     
+    });
+
+    exitPopup.addEventListener('click', () => {
+        document.body.removeChild(darkOverlay);
+    });
 }

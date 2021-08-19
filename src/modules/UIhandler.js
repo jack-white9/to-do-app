@@ -1,10 +1,9 @@
-import './style.css';
+import '../style.css';
 
 export default function UIhandler() {
     //wrapper contents
     const wrapper = document.createElement('wrapper');
     document.body.appendChild(wrapper);
-
     const projectContainer = document.createElement('container');
     projectContainer.classList.add('projectContainer');
     wrapper.appendChild(projectContainer);
@@ -87,12 +86,6 @@ export default function UIhandler() {
     task1.innerHTML = 'Vacuum the floor';
     containerTask1.appendChild(task1);
 
-    const time1 = document.createElement('p');
-    time1.classList.add('todoTime');
-    time1.innerHTML = 'Today';
-    containerTask1.appendChild(time1);
-
-
     const containerTask2 = document.createElement('container');
     containerTask2.classList.add('todoContainer');
     tasksContainer.appendChild(containerTask2);
@@ -105,12 +98,6 @@ export default function UIhandler() {
     task2.classList.add('todoText');
     task2.innerHTML = 'Do the dishes';
     containerTask2.appendChild(task2);
-
-    const time2 = document.createElement('p');
-    time2.classList.add('todoTime');
-    time2.innerHTML = 'Yesterday';
-    containerTask2.appendChild(time2);
-
 
     const containerTask3 = document.createElement('container');
     containerTask3.classList.add('todoContainer');
@@ -125,12 +112,6 @@ export default function UIhandler() {
     task3.innerHTML = 'This is a really long task that gets cut off ear...';
     containerTask3.appendChild(task3);
 
-    const time3 = document.createElement('p');
-    time3.classList.add('todoTime');
-    time3.innerHTML = '3d';
-    containerTask3.appendChild(time3);
-
-
     const containerTask4 = document.createElement('container');
     containerTask4.classList.add('todoContainer');
     tasksContainer.appendChild(containerTask4);
@@ -143,12 +124,6 @@ export default function UIhandler() {
     task4.classList.add('todoText');
     task4.innerHTML = 'Fold the washing';
     containerTask4.appendChild(task4);
-
-    const time4 = document.createElement('p');
-    time4.classList.add('todoTime');
-    time4.innerHTML = '7d';
-    containerTask4.appendChild(time4);
-
 
     const addTask = document.createElement('p');
     addTask.classList.add('addTask');

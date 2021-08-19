@@ -109,21 +109,8 @@ export default function UIhandler() {
 
     const task3 = document.createElement('p');
     task3.classList.add('todoText');
-    task3.innerHTML = 'This is a really long task that gets cut off ear...';
+    task3.innerHTML = 'Fold the washing';
     containerTask3.appendChild(task3);
-
-    const containerTask4 = document.createElement('container');
-    containerTask4.classList.add('todoContainer');
-    tasksContainer.appendChild(containerTask4);
-
-    const circle4 = document.createElement('span');
-    circle4.classList.add('circle');
-    containerTask4.appendChild(circle4);
-
-    const task4 = document.createElement('p');
-    task4.classList.add('todoText');
-    task4.innerHTML = 'Fold the washing';
-    containerTask4.appendChild(task4);
 
     const addTask = document.createElement('p');
     addTask.classList.add('addTask');

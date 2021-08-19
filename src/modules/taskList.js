@@ -4,9 +4,17 @@ export default function taskList() {
     let taskListArray = [
         {name: 'Vacuum the floor'},
         {name: 'Do the dishes'},
-        {name: 'This is a really long task that gets cut off ear...'},
-        {name: 'Fold the washing'}
+        {name: 'Fold the washing'},
     ];
+    let todoContainers = document.querySelectorAll('.todoContainer');
+
+    // add event listeners for todos rendered with page
+    todoContainers = document.querySelectorAll('.todoContainer');
+    todoContainers.forEach(todoContainer => {
+        todoContainer.addEventListener('mouseover', () => {
+            console.log('zooom');
+        })
+    });
 
     document.querySelector('.addTask').addEventListener('click', () => {
         const confirmForms = document.querySelector('.confirmForms');
@@ -39,9 +47,14 @@ export default function taskList() {
                     task.innerHTML = taskListArray[key].name;
                     taskItemContainer.appendChild(task);
 
-                    console.log(taskListArray[key].name);
+                    const removeTodo = document.createElement('button');
+                    removeTodo.classList.add('removeTodo');
+
+                    taskItemContainer.addEventListener('mouseover', () => {
+                        console.log('zooom');
+                    });
                 }
             })();
-        })
+        });
     });
 }

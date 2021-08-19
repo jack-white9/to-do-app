@@ -160,7 +160,7 @@ export default function UIhandler() {
         popupContainer.appendChild(exitPopup);
         popupContainer.appendChild(popupHeading);
         popupContainer.appendChild(taskForm);
-        popupContainer.appendChild(confirmForms)     
+        popupContainer.appendChild(confirmForms);     
     });
 
     exitPopup.addEventListener('click', () => {

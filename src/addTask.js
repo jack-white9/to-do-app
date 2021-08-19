@@ -1,4 +1,4 @@
-export default function addTaskPopup() {
+const addTaskPopup = () => {
     const addTaskButton = document.querySelector('.addTask');
     const exitPopup = document.createElement('p');
     exitPopup.classList.add('exitPopup');
@@ -41,4 +41,20 @@ export default function addTaskPopup() {
     exitPopup.addEventListener('click', () => {
         document.body.removeChild(darkOverlay);
     })
+}
+
+const addTaskToObject = () => {
+    const task = (taskName, taskTime) => {
+        return { taskName, taskTime };
+    };
+
+    // create const newTask from fields of popup
+    const newTask = task('Vacuum', 'Today');
+
+    console.log(newTask.taskName, newTask.taskTime);
+}
+
+export {
+    addTaskPopup,
+    addTaskToObject
 }

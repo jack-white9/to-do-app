@@ -28,7 +28,7 @@ export default function taskList() {
                 for (let key in taskListArray) {
                     const taskItemContainer = document.createElement('container');
                     taskItemContainer.classList.add('todoContainer');
-                    tasksContainer.appendChild(taskItemContainer);
+                    tasksContainer.insertBefore(taskItemContainer, document.querySelector('.addTask'));
                     
                     const circle = document.createElement('span');
                     circle.classList.add('circle');

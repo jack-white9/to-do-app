@@ -1,5 +1,5 @@
-import taskList from './modules/taskList.js';
 import UIhandler from './modules/UIhandler.js';
+import eventHandlers from './modules/eventHandlers';
 
 UIhandler();
-taskList();
+eventHandlers();

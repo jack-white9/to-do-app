@@ -1,5 +1,6 @@
 export default class Task {
-    constructor(name) {
+    constructor(name, status) {
         this.name = name;
+        this.status = status;
     }
 }

@@ -128,6 +128,14 @@ wrapper {
     margin: 0.25em 0.4em;
 }
 
+.unchecked {
+    background-color: transparent;
+}
+
+.checked {
+    background-color: #03DAC5;
+}
+
 .todoTime {
     justify-self: end;
     align-self: center;

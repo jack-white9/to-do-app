@@ -11,8 +11,15 @@ export default function taskList() {
     // add event listeners for todos rendered with page
     todoContainers = document.querySelectorAll('.todoContainer');
     todoContainers.forEach(todoContainer => {
-        todoContainer.addEventListener('mouseover', () => {
-            console.log('zooom');
+        todoContainer.addEventListener('click', () => {
+            const checkbox = todoContainer.childNodes[0];
+            if (checkbox.classList.contains('unchecked')) {
+                checkbox.classList.remove('unchecked');
+                checkbox.classList.add('checked');
+            } else {
+                checkbox.classList.remove('checked');
+                checkbox.classList.add('unchecked');
+            }
         })
     });
 
@@ -40,6 +47,7 @@ export default function taskList() {
                     
                     const circle = document.createElement('span');
                     circle.classList.add('circle');
+                    circle.classList.add('unchecked');
                     taskItemContainer.appendChild(circle);
                 
                     const task = document.createElement('p');
@@ -50,8 +58,14 @@ export default function taskList() {
                     const removeTodo = document.createElement('button');
                     removeTodo.classList.add('removeTodo');
 
-                    taskItemContainer.addEventListener('mouseover', () => {
-                        console.log('zooom');
+                    taskItemContainer.addEventListener('click', () => {
+                        if (circle.classList.contains('unchecked')) {
+                            circle.classList.remove('unchecked');
+                            circle.classList.add('checked');
+                        } else {
+                            circle.classList.remove('checked');
+                            circle.classList.add('unchecked');
+                        }
                     });
                 }
             })();

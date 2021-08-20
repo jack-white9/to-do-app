@@ -79,6 +79,7 @@ export default function UIhandler() {
 
     const circle1 = document.createElement('span');
     circle1.classList.add('circle');
+    circle1.classList.add('unchecked');
     containerTask1.appendChild(circle1);
 
     const task1 = document.createElement('p');
@@ -92,6 +93,7 @@ export default function UIhandler() {
 
     const circle2 = document.createElement('span');
     circle2.classList.add('circle');
+    circle2.classList.add('unchecked');
     containerTask2.appendChild(circle2);
 
     const task2 = document.createElement('p');
@@ -105,6 +107,7 @@ export default function UIhandler() {
 
     const circle3 = document.createElement('span');
     circle3.classList.add('circle');
+    circle3.classList.add('unchecked');
     containerTask3.appendChild(circle3);
 
     const task3 = document.createElement('p');

@@ -21,7 +21,7 @@ export default class TodoList {
     }
 
     deleteTask(taskName) {
-        const index = tasks.indexOf(taskName);
+        const index = this.tasks.indexOf(taskName);
         if (index > -1) {
             this.tasks.splice(index, 1);
         }

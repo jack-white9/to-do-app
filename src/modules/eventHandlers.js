@@ -2,6 +2,7 @@ import TodoList from './taskList';
 export default function eventHandlers() {
     const todoList = new TodoList()
 
+    // Add task
     const tasksContainer = document.querySelector('.tasksContainer')
     const addTaskButton = document.querySelector('.addTask');
     addTaskButton.addEventListener('click', () => {
@@ -24,23 +25,26 @@ export default function eventHandlers() {
                     <p class="todoText">${todoInput.value}</p>
                     <p class="delete">×</p> 
                 `
+                todoContainer.querySelector('.delete').addEventListener('click', () => {
+                    todoList.deleteTask(todoContainer.querySelector('.delete').parentElement.children[1].innerHTML) //this is not deleting tasks properly
+                    todoContainer.querySelector('.delete').parentElement.remove();
+                });
                 todoContainer.removeChild(document.querySelector('.addTodo'));
-                addDeleteButton();
+                
             } else if (event.key === 'Enter' && todoInput.value == '') {
                 tasksContainer.removeChild(todoContainer);
             }
         })
     });
 
-    function addDeleteButton() {
-        let deleteTaskButtons = document.querySelectorAll('.delete');
-        deleteTaskButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                console.log('click!')
-            });
+    // Delete task
+    let deleteTaskButtons = document.querySelectorAll('.delete');
+    deleteTaskButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            console.log(todoList.tasks)
+            todoList.deleteTask(button.parentElement.children[1].innerHTML) //this is not deleting tasks properly
+            console.log(todoList.tasks)
+            button.parentElement.remove();
         });
-    }
-
-    addDeleteButton(); // this is being double counted
-
+    });
 }

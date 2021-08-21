@@ -159,9 +159,11 @@ wrapper {
 
 .addTodo {
     font-family: 'Roboto', sans-serif;
-    border-radius: 10px;
-    border: 0.1em solid #393938;
-    padding: 0 0.5vw 0 0.5vw;
+    border: 0.1em solid transparent;
+    border-bottom: 2px solid white;
+    font-size: 2vw;
+    background-color: transparent;
+    color: white;
 }
 
 .addTodo:focus {

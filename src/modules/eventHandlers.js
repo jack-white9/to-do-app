@@ -25,8 +25,19 @@ export default function eventHandlers() {
                     <p class="todoText">${todoInput.value}</p>
                     <p class="delete">×</p> 
                 `
+                // add check/uncheck task
+                todoContainer.addEventListener('click', () => {
+                    let todoContainerIndex = (Array.from(todoContainer.parentNode.children).indexOf(todoContainer)) - 3; // matches position of task with task object array
+                    if (todoList.getTasks()[todoContainerIndex].status === 'unchecked') {
+                        todoList.getTasks()[todoContainerIndex].setStatus('checked');
+                        todoContainer.children[0].style.cssText = 'background: #03DAC5';
+                    } else if (todoList.getTasks()[todoContainerIndex].status === 'checked') {
+                        todoList.getTasks()[todoContainerIndex].setStatus('unchecked');
+                        todoContainer.children[0].style.cssText = 'background: transparent';
+                    }
+                });
                 todoContainer.querySelector('.delete').addEventListener('click', () => {
-                    todoList.deleteTask(todoContainer.querySelector('.delete').parentElement.children[1].innerHTML) //this is not deleting tasks properly
+                    todoList.deleteTask(todoContainer.querySelector('.delete').parentElement.children[1].innerHTML) //this is not deleting task objects properly
                     todoContainer.querySelector('.delete').parentElement.remove();
                 });
                 todoContainer.removeChild(document.querySelector('.addTodo'));
@@ -42,9 +53,24 @@ export default function eventHandlers() {
     deleteTaskButtons.forEach(button => {
         button.addEventListener('click', () => {
             console.log(todoList.tasks)
-            todoList.deleteTask(button.parentElement.children[1].innerHTML) //this is not deleting tasks properly
+            todoList.deleteTask(button.parentElement.children[1].innerHTML) //this is not deleting task objects properly
             console.log(todoList.tasks)
             button.parentElement.remove();
+        });
+    });
+
+    // Check/uncheck task
+    const todoContainers = document.querySelectorAll('.todoContainer');
+    todoContainers.forEach(todoContainer => {
+        todoContainer.addEventListener('click', () => {
+            let todoContainerIndex = (Array.from(todoContainer.parentNode.children).indexOf(todoContainer)) - 3; // matches position of task with task object array
+            if (todoList.getTasks()[todoContainerIndex].status === 'unchecked') {
+                todoList.getTasks()[todoContainerIndex].setStatus('checked');
+                todoContainer.children[0].style.cssText = 'background: #03DAC5';
+            } else if (todoList.getTasks()[todoContainerIndex].status === 'checked') {
+                todoList.getTasks()[todoContainerIndex].setStatus('unchecked');
+                todoContainer.children[0].style.cssText = 'background: transparent';
+            }
         });
     });
 }

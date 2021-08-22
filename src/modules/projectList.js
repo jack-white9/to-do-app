@@ -3,10 +3,7 @@ import Project from './project'
 export default class ProjectList {
     constructor() {
         this.projects = []
-        this.projects.push(new Project('Homework'));
         this.projects.push(new Project('Chores'));
-        this.projects.push(new Project('Charity'));
-        this.projects.push(new Project('Work'));
     }
 
     setProjects(projects) {

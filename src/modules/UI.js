@@ -4,6 +4,7 @@ import ProjectList from './projectList';
 import Task from './task';
 
 export default function UI() {
+    // Skeleton HTML
     const wrapper = document.createElement('wrapper');
     wrapper.innerHTML += `
         <container class="projectContainer">
@@ -25,7 +26,7 @@ export default function UI() {
     `
     document.body.appendChild(wrapper);
 
-    // Example project
+    // Example projects
     let projectList = new ProjectList;
     const projectListContainer = document.querySelector('.projectListContainer');
     let projects = projectList.getProjects().map(function (project) {
@@ -37,7 +38,7 @@ export default function UI() {
     projectListContainer.innerHTML += projects;
 
 
-    // Example tasks
+    // Example project contents
     let chores = new Project('Chores');
     const todoListContainer = document.querySelector('.todoListContainer');
     let taskList = chores.getTasks().map(function (task) {
@@ -48,6 +49,5 @@ export default function UI() {
             <p class="delete">×</p> 
         </container>`
     }).join('');
-    todoListContainer.innerHTML += taskList;
-    
+    todoListContainer.innerHTML += taskList;    
 }

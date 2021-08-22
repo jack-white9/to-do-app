@@ -2,6 +2,41 @@ import Project from './project'
 import ProjectList from './projectList'
 import Task from './task'
 
+export default function eventHandlers() {
+    // Add project
+    let projectList = new ProjectList;
+
+    const addProject = document.querySelector('.addProject');
+    const projectListContainer = document.querySelector('.projectListContainer');
+    addProject.addEventListener('click', () => {
+        projectListContainer.innerHTML += `
+        <container class="projectItemContainer">
+            <p class="projects"><input type="text" class="projectInput"></input></p>
+            <p class="deleteProject">×</p> 
+        </container>`
+        const projectInput = document.querySelector('.projectInput');
+        projectInput.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter' && projectInput.value != '') {
+                console.log(document.querySelector('.projectInput').value);
+                projectList.addProject(projectInput.value);
+                console.log(projectList)
+                updateProjects();
+            }
+        });
+    });
+
+    // cycles through project array and updates DOM
+    function updateProjects() {
+        let projects = projectList.getProjects().map(function (project) {
+            return `
+            <container class="projectItemContainer">
+                <p class="projects">${project.name}</p>
+                <p class="deleteProject">×</p> 
+            </container>`
+        }).join('');
+        projectListContainer.innerHTML = projects;
+    }
+}
 
 
 

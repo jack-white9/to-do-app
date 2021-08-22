@@ -176,11 +176,9 @@ wrapper {
 }
 
 .deleteProject {
-    display: inline-block;
-    justify-self: flex-end;
-    margin-right: 10%;
-    vertical-align: middle;
-    line-height: normal;
+    font-size: 2vw;
+    justify-self: center;
+    align-self: center;
 }
 
 .delete:hover, .deleteProject:hover {
@@ -190,5 +188,5 @@ wrapper {
 
 .projectItemContainer {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 8fr 1fr;
 }

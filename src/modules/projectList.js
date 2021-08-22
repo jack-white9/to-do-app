@@ -1,4 +1,4 @@
-import Project from './project.js'
+import Project from './project'
 
 export default class ProjectList {
     constructor() {
@@ -26,9 +26,5 @@ export default class ProjectList {
         if (index > -1) {
             this.projects.splice(index, 1);
         }
-    }
-
-    updateProjectList() {
-        return this.projects;
     }
 }

@@ -6,7 +6,4 @@ export default class Task {
     setStatus(_status) {
         this.status = _status;
     }
-    sayHi() {
-        alert('hi');
-    }
 }

@@ -1,5 +1,5 @@
-import UIhandler from './modules/UIhandler.js';
-import eventHandlers from './modules/eventHandlers';
+import UI from './modules/UI';
+//import eventHandlers from './modules/eventHandlers';
 
-UIhandler();
-eventHandlers();
+UI();
+//eventHandlers();

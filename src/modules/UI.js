@@ -31,8 +31,9 @@ export default function UI() {
     const projectListContainer = document.querySelector('.projectListContainer');
     let projects = projectList.getProjects().map(function (project) {
         return `
-        <container class="projectListContainer">
+        <container class="projectItemContainer">
             <p class="projects">${project.name}</p>
+            <p class="deleteProject">×</p> 
         </container>`
     }).join('');
     projectListContainer.innerHTML += projects;

@@ -175,7 +175,20 @@ wrapper {
     margin-right: 10%;
 }
 
-.delete:hover {
+.deleteProject {
+    display: inline-block;
+    justify-self: flex-end;
+    margin-right: 10%;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+.delete:hover, .deleteProject:hover {
     color: #03DAC5;
     cursor: pointer;
+}
+
+.projectItemContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }

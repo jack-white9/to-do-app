@@ -1,6 +1,9 @@
 import TodoList from './taskList';
+import ProjectList from './projectList'
+
 export default function eventHandlers() {
     const todoList = new TodoList()
+    const projectList = new ProjectList()
 
     // Add task
     const tasksContainer = document.querySelector('.tasksContainer')

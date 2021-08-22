@@ -1,4 +1,4 @@
-import Project from './task.js'
+import Project from './project.js'
 
 export default class ProjectList {
     constructor() {
@@ -21,10 +21,14 @@ export default class ProjectList {
         this.projects.push(new Project(projectName));
     }
 
-    deleteProject(taskName) {
-        const index = this.tasks.indexOf(taskName);
+    deleteProject(projectName) {
+        const index = this.projects.indexOf(projectName);
         if (index > -1) {
-            this.tasks.splice(index, 1);
+            this.projects.splice(index, 1);
         }
+    }
+
+    updateProjectList() {
+        return this.projects;
     }
 }

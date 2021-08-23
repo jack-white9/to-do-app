@@ -25,7 +25,6 @@ export default function eventHandlers() {
             if (event.key === 'Enter' && projectInput.value != '') {
                 projectList.addProject(projectInput.value);
                 updateProjects();
-                //deleteTaskClickListener();
             } // add condition to reject projects with duplicate names
         });
     });
@@ -61,7 +60,7 @@ export default function eventHandlers() {
             </container>`
         }).join('');
         projectListContainer.innerHTML = projects;
-        deleteProjectClickListener(); // Give the projects their event listeners
+        deleteProjectClickListener();
         projectTasksClickListener();
     }
 
@@ -74,9 +73,19 @@ export default function eventHandlers() {
             <span class="circle"></span>
             <p class="todoText">${task.name}</p>
             <p class="delete">×</p> 
-        </container>`
+        </container>` 
         }).join('');
         taskListContainer.innerHTML = tasks;
+
+         // Look for checked tasks and apply style
+         currentProject.getTasks().forEach(task => {
+            if (task.status === 'checked') {
+                console.log(task);
+                let circles = document.querySelectorAll('.circle');
+                circles[currentProject.getTasks().indexOf(task)].classList.add('checked');
+            }
+        });
+
         taskHeader.innerHTML = project;
         selectedProject = taskHeader.innerHTML;
         deleteTaskClickListener();
@@ -116,7 +125,7 @@ export default function eventHandlers() {
     }
 
     // Check/uncheck task
-    function checkTaskClickListener() { // statuses get reset by updateTask() and updateProjects()
+    function checkTaskClickListener() {
         const taskContainers = document.querySelectorAll('.todoContainer');
         taskContainers.forEach(button => { // this event listener is also triggered when the delete button is pressed
             button.addEventListener('click', () => {
@@ -124,13 +133,12 @@ export default function eventHandlers() {
                 let selectedTask = currentProject.getTasks().filter(object => object.name === button.children[1].innerHTML)[0]; // button.children[1] is an ugly use of index
                 if (selectedTask.status === 'unchecked') {
                     selectedTask.setStatus('checked');
-                    button.children[0].style.background = '#03DAC5';
+                    button.children[0].classList.toggle('checked');
                 } else if (selectedTask.status === 'checked') {
                     selectedTask.setStatus('unchecked');
-                    button.children[0].style.background = 'transparent';
+                    button.children[0].classList.toggle('checked');
                 }
             })
         })
     }
-
 }

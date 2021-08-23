@@ -190,3 +190,7 @@ wrapper {
     display: grid;
     grid-template-columns: 8fr 1fr;
 }
+
+.checked {
+    background-color: #03DAC5;
+}

@@ -42,7 +42,7 @@ wrapper {
     width: 100%;
 }
 
-.projects {
+.projects, .addProject {
     font-size: 2vw;
     padding-top: 0.5em;
     padding-left: 0.25em;
@@ -50,7 +50,7 @@ wrapper {
     vertical-align: middle;
 }
 
-.projects:hover {
+.projects:hover, .addProject:hover {
     background-color: #393938;
     cursor: pointer;
 }
@@ -175,7 +175,22 @@ wrapper {
     margin-right: 10%;
 }
 
-.delete:hover {
+.deleteProject {
+    font-size: 2vw;
+    justify-self: center;
+    align-self: center;
+}
+
+.delete:hover, .deleteProject:hover {
     color: #03DAC5;
     cursor: pointer;
+}
+
+.projectItemContainer {
+    display: grid;
+    grid-template-columns: 8fr 1fr;
+}
+
+.checked {
+    background-color: #03DAC5;
 }

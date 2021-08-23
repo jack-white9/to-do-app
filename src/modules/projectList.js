@@ -1,12 +1,9 @@
-import Project from './project.js'
+import Project from './project'
 
 export default class ProjectList {
     constructor() {
         this.projects = []
-        this.projects.push(new Project('Homework'));
         this.projects.push(new Project('Chores'));
-        this.projects.push(new Project('Charity'));
-        this.projects.push(new Project('Work'));
     }
 
     setProjects(projects) {
@@ -21,14 +18,12 @@ export default class ProjectList {
         this.projects.push(new Project(projectName));
     }
 
-    deleteProject(projectName) {
-        const index = this.projects.indexOf(projectName);
-        if (index > -1) {
-            this.projects.splice(index, 1);
+    deleteProject(projectName) { //bug: when multiple projects share name, it deletes the last project instead of the one specified
+        for (let i = this.projects.length - 1; i >= 0; --i) {
+            if (this.projects[i].name === projectName) {
+                this.projects.splice(i, 1);
+                break
+            }
         }
-    }
-
-    updateProjectList() {
-        return this.projects;
     }
 }

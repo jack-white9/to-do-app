@@ -19,7 +19,7 @@ export default function UI() {
                 <p class="edit">Edit</p>
             </container>
             <hr class="tasksDivider"></hr>
-            <h2 class="tasksSubheader">I have to do these to keep the house tidy.</h2>
+            <h2 class="tasksSubheader"><i>Click a task to check it off.</i></h2>
             <container class="todoListContainer"></container>
             <p class="addTask">+ Add Task</p>
         </container>

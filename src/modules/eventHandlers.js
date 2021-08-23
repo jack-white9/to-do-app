@@ -127,7 +127,7 @@ export default function eventHandlers() {
     // Check/uncheck task
     function checkTaskClickListener() {
         const taskContainers = document.querySelectorAll('.todoContainer');
-        taskContainers.forEach(button => { // this event listener is also triggered when the delete button is pressed
+        taskContainers.forEach(button => { // this event listener is also triggered when the delete button is pressed (minor bug)
             button.addEventListener('click', () => {
                 let currentProject = projectList.getProjects().filter(project => project.name === selectedProject)[0];
                 let selectedTask = currentProject.getTasks().filter(object => object.name === button.children[1].innerHTML)[0]; // button.children[1] is an ugly use of index

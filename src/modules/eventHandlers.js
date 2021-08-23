@@ -1,10 +1,9 @@
-import Project from './project'
 import ProjectList from './projectList'
 
 export default function eventHandlers() {
 
     // Instantiate
-    let projectList = new ProjectList;
+    let projectList = new ProjectList; // store to browser
     const addProject = document.querySelector('.addProject');
     const projectListContainer = document.querySelector('.projectListContainer');
     const taskListContainer = document.querySelector('.todoListContainer');
@@ -13,11 +12,6 @@ export default function eventHandlers() {
 
     updateProjects();
     updateTasks(selectedProject);
-
-
-    // consider: let selectedProject = taskHeader.innerHTML;
-    // then change the value in the same way at the end of updateProject(), then updateProject() can track changes and reduce
-    // clunkiness in functions and allow starting function call
 
     // Add project
     addProject.addEventListener('click', () => {
@@ -86,6 +80,7 @@ export default function eventHandlers() {
         taskHeader.innerHTML = project;
         selectedProject = taskHeader.innerHTML;
         deleteTaskClickListener();
+        checkTaskClickListener()
     }
 
     // Add task
@@ -113,17 +108,29 @@ export default function eventHandlers() {
         deleteTask.forEach(button => {
             button.addEventListener('click', () => {
                 let currentProject = projectList.getProjects().filter(project => project.name === selectedProject)[0];
-                console.log(currentProject);
                 let selectedTask = currentProject.getTasks().filter(object => object.name === button.parentNode.children[1].innerHTML)[0];
-                console.log(selectedTask)
-                projectList.getProjects()[0].deleteTask(selectedTask);
-                console.log(projectList.getProjects()) // returns old project too for some reason
+                currentProject.deleteTask(selectedTask);
                 updateTasks(taskHeader.innerHTML);
             });
         });
     }
 
     // Check/uncheck task
-    
+    function checkTaskClickListener() { // statuses get reset by updateTask() and updateProjects()
+        const taskContainers = document.querySelectorAll('.todoContainer');
+        taskContainers.forEach(button => { // this event listener is also triggered when the delete button is pressed
+            button.addEventListener('click', () => {
+                let currentProject = projectList.getProjects().filter(project => project.name === selectedProject)[0];
+                let selectedTask = currentProject.getTasks().filter(object => object.name === button.children[1].innerHTML)[0]; // button.children[1] is an ugly use of index
+                if (selectedTask.status === 'unchecked') {
+                    selectedTask.setStatus('checked');
+                    button.children[0].style.background = '#03DAC5';
+                } else if (selectedTask.status === 'checked') {
+                    selectedTask.setStatus('unchecked');
+                    button.children[0].style.background = 'transparent';
+                }
+            })
+        })
+    }
 
 }

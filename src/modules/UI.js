@@ -11,7 +11,7 @@ export default function UI() {
             <h1 class="projectHeader">Projects</h1>
             <hr class="projectDivider"></hr>
             <container class="projectListContainer"></container>
-            <p class="projects addProject">+ Add Project</p>
+            <p class="addProject">+ Add Project</p>
         </container>
         <container class="tasksContainer">
             <container class="tasksHeaderContainer">

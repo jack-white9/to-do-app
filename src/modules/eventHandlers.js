@@ -1,10 +1,13 @@
+import Project from './project'
 import ProjectList from './projectList'
 
 export default function eventHandlers() {
 
+    // Instantiate
     let projectList = new ProjectList;
     const addProject = document.querySelector('.addProject');
     const projectListContainer = document.querySelector('.projectListContainer');
+    const taskListContainer = document.querySelector('.todoListContainer');
 
     updateProjects();
 
@@ -20,7 +23,7 @@ export default function eventHandlers() {
             if (event.key === 'Enter' && projectInput.value != '') {
                 projectList.addProject(projectInput.value);
                 updateProjects();
-            }
+            } // add condition to reject projects with duplicate names
         });
     });
 
@@ -29,12 +32,20 @@ export default function eventHandlers() {
     const deleteProject = document.querySelectorAll('.deleteProject');
     deleteProject.forEach(button => {
         button.addEventListener('click', () => {
-            console.log(projectList.getProjects());
             projectList.deleteProject(button.parentNode.children[0].innerHTML);
-            console.log(projectList.getProjects());
             updateProjects();
             })
         })
+    }
+
+    // Make projects display their tasks
+    function projectTasksClickListener() {
+        const projectButtons = document.querySelectorAll('.projects');
+        projectButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                console.log(updateTasks(button.innerHTML));
+            });
+        });
     }
 
     // Function to cycle through project array and update DOM
@@ -47,6 +58,27 @@ export default function eventHandlers() {
             </container>`
         }).join('');
         projectListContainer.innerHTML = projects;
-        deleteProjectClickListener(); // Give the items their event listeners
+        deleteProjectClickListener(); // Give the projects their event listeners
+        projectTasksClickListener();
     }
+
+    // Function to cycle through task array and update DOM
+    function updateTasks(project) {
+        let taskArray = projectList.getProjects().filter(object => object.name === project);
+        let tasks = taskArray[0].getTasks().map(function (task) {
+            return `
+            <container class="todoContainer">
+            <span class="circle"></span>
+            <p class="todoText">${task.name}</p>
+            <p class="delete">×</p> 
+        </container>`
+        }).join('');
+        taskListContainer.innerHTML = tasks;
+    }
+
+    // Add task
+
+    // Remove task
+
+    // Check/uncheck task
 }

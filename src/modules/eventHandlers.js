@@ -8,6 +8,7 @@ export default function eventHandlers() {
     const addProject = document.querySelector('.addProject');
     const projectListContainer = document.querySelector('.projectListContainer');
     const taskListContainer = document.querySelector('.todoListContainer');
+    let taskHeader = document.querySelector('.tasksHeader');
 
     updateProjects();
 
@@ -43,7 +44,7 @@ export default function eventHandlers() {
         const projectButtons = document.querySelectorAll('.projects');
         projectButtons.forEach(button => {
             button.addEventListener('click', () => {
-                console.log(updateTasks(button.innerHTML));
+                updateTasks(button.innerHTML);
             });
         });
     }
@@ -74,9 +75,28 @@ export default function eventHandlers() {
         </container>`
         }).join('');
         taskListContainer.innerHTML = tasks;
+        taskHeader.innerHTML = project;
     }
 
     // Add task
+    const addTask = document.querySelector('.addTask');
+    addTask.addEventListener('click', () => {
+        taskListContainer.innerHTML += `
+        <container class="todoContainer">
+        <span class="circle"></span>
+        <p class="todoText"><input type="text" class="taskInput"></input></p>
+        <p class="delete">×</p> 
+        `
+        const taskInput = document.querySelector('.taskInput');
+        taskInput.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter' && taskInput.value != '') {
+                let currentProject = projectList.getProjects().filter(object => object.name === taskHeader.innerHTML);
+                currentProject[0].addTask(taskInput.value, 'unchecked');
+                console.log(currentProject[0].getTasks())
+                updateTasks(taskHeader.innerHTML);
+            } // add condition to reject tasks with duplicate names
+        });
+    })
 
     // Remove task
 

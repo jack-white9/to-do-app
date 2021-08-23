@@ -18,10 +18,13 @@ export default class ProjectList {
         this.projects.push(new Project(projectName));
     }
 
-    deleteProject(projectName) {
-        const index = this.projects.indexOf(projectName);
-        if (index > -1) {
-            this.projects.splice(index, 1);
+    deleteProject(projectName) { //bug: when multiple projects share name, it deletes the last project instead of the one specified
+        for (let i = this.projects.length - 1; i >= 0; --i) {
+            if (this.projects[i].name === projectName) {
+                console.log('found')
+                this.projects.splice(i, 1);
+                break
+            }
         }
     }
 }

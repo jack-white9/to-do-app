@@ -194,3 +194,19 @@ wrapper {
 .checked {
     background-color: #03DAC5;
 }
+
+.taskInput, .projectInput {
+    background-color: transparent;
+    height: 100%;
+    border-bottom: 2px solid white;
+    border-top: 0.1px solid transparent;
+    border-left: 0.1px solid transparent;
+    border-right: 0.1px solid transparent;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2vw;
+}
+
+.taskInput:focus, .projectInput:focus {
+    outline: none;
+}

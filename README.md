@@ -10,5 +10,5 @@ A minimalist to-do app written in JavaScript with a heavy emphasis on object-ori
   <li>CSS3</li>
   <li>Webpack</li>
   <li>NPM</li>
-  <li>ESLin</li>
+  <li>ESLint</li>
 </ul>
